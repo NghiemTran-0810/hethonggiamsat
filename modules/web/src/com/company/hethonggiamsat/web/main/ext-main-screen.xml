@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+        caption="mainMsg://application.caption">
+
+<!--    <data readOnly="true">-->
+<!--        <collection id="dataValuesDc"-->
+<!--                    class="com.company.hethonggiamsat.entity.DataValue">-->
+<!--            <view extends="_local"/>-->
+<!--            <loader id="dataValuesDl">-->
+<!--                <query>-->
+<!--                    <![CDATA[select e from hethonggiamsat_DataValue e]]>-->
+<!--                </query>-->
+<!--            </loader>-->
+<!--        </collection>-->
+<!--    </data>-->
+    <data>
+        <collection id="dataValuesDc"
+                    class="com.company.hethonggiamsat.entity.DataValue"
+                    view="_local">
+            <loader id="dataValuesDl"
+                    maxResults="10">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_DataValue e order by e.date]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout expand="foldersSplit">
+        <vbox>
+            <label value="HỆ THỐNG GIÁM SÁT THÔNG TIN TRÊN KHÔNG GIAN MẠNG" css="font-size: 31px; color: rgb(1, 84, 120);font-weight: 700; padding: 20px;"/>
+        </vbox>
+        <hbox id="titleBar"
+              stylename="c-app-menubar"
+              expand="mainMenu"
+              width="100%"
+              spacing="true"
+              margin="false;false;false;true">
+            <image id="logoImage"
+                   align="MIDDLE_LEFT"
+                   scaleMode="SCALE_DOWN"
+                   stylename="c-app-icon"/>
+            <hbox height="100%">
+                <linkButton id="homeButton"
+                            icon="font-icon:HOME"
+                            css="color: #fff; height: 100%; border-color:transparent;"
+                            description="Trang chủ"/>
+            </hbox>
+            <menu id="mainMenu" align="MIDDLE_LEFT"/>
+            <hbox width="AUTO" align="MIDDLE_RIGHT" css="padding-right: 50px;" spacing="true">
+                <logoutButton id="logoutButton"
+                              icon="app/images/exit.png"
+                              description="mainMsg://logoutBtnDescription"/>
+            </hbox>
+
+        </hbox>
+
+        <split id="foldersSplit"
+               width="100%"
+               orientation="horizontal"
+               pos="200px">
+            <foldersPane id="foldersPane"
+                         width="100%"
+                         height="100%"/>
+            <workArea id="workArea"
+                      width="100%"
+                      height="100%">
+                <initialLayout spacing="true" margin="true">
+                    <vbox width="100%" height="100%" expand="boxContent">
+                        <vbox id="boxContent">
+                            <scrollBox width="100%" height="100%" spacing="true">
+                            <hbox width="100%" height="500px" spacing="true">
+                                <vbox width="100%" height="100%" expand="donutChart" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                                    <label value="Thống kê theo nguồn" align="MIDDLE_CENTER"/>
+                                    <chart:pieChart id="donutChart"
+                                                    height="100%"
+                                                    innerRadius="60%"
+                                                    labelRadius="5"
+                                                    labelText="[[]]"
+                                                    radius="42%"
+                                                    titleField="title"
+                                                    valueField="value"
+                                                    width="100%" align="MIDDLE_CENTER">
+                                        <chart:export/>
+                                        <chart:legend autoMargins="true"
+                                                      textClickEnabled="true"
+                                                      fontSize="8"
+                                                      align="RIGHT"
+                                                      marginLeft="0"
+
+                                                      markerType="CIRCLE"
+                                                      valueText="[[]]"
+                                                      position="RIGHT"/>
+                                        <chart:colors>
+                                            <chart:color value="#ffc103"/>
+                                            <chart:color value="#6ead42"/>
+                                            <chart:color value="#4472c5"/>
+                                        </chart:colors>
+                                    </chart:pieChart>
+                                </vbox>
+
+                                <vbox width="100%" height="100%"  expand="lineChart" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                                    <label value="Thống kê theo nguồn" align="MIDDLE_CENTER"/>
+                                    <chart:serialChart id="lineChart"
+                                                       css="background: #fff;"
+                                                       autoMarginOffset="20"
+                                                       categoryField="date"
+                                                       dataContainer="dataValuesDc"
+                                                       height="100%"
+                                                       marginLeft="80"
+                                                       fontSize="10"
+                                                       theme="LIGHT"
+                                                       width="100%">
+                                        <chart:valueAxes>
+                                            <chart:axis id="v1"
+                                                        axisAlpha="0"
+                                                        ignoreAxisWidth="true"
+                                                        position="LEFT"/>
+                                        </chart:valueAxes>
+                                        <chart:balloon borderThickness="1"
+                                                       shadowAlpha="0"/>
+                                        <chart:graphs>
+                                            <chart:graph id="g1"
+                                                         bullet="ROUND"
+                                                         bulletBorderAlpha="1"
+                                                         bulletBorderColor="WHITE"
+                                                         hideBulletsCount="50"
+                                                         lineThickness="2"
+                                                         useNegativeColorIfDown="true"
+                                                         negativeLineColor="YELLOWGREEN"
+                                                         valueField="value"
+                                                         balloonText="&lt;span style='font-size:18px;'&gt;[[value]]&lt;/span&gt;">
+                                                <chart:balloon adjustBorderColor="false"
+                                                               color="WHITE"
+                                                               drop="true"/>
+                                            </chart:graph>
+                                        </chart:graphs>
+                                        <chart:categoryAxis dashLength="1"
+                                                            minorGridEnabled="true"/>
+                                        <chart:chartCursor cursorAlpha="1"
+                                                           cursorColor="#258cbb"
+                                                           cursorPosition="MOUSE"
+                                                           limitToGraph="g1"
+                                                           pan="true"
+                                                           valueLineAlpha="0.2"
+                                                           valueLineEnabled="true"
+                                                           valueLineBalloonEnabled="true"
+                                                           valueZoomable="true"/>
+                                        <chart:export/>
+                                    </chart:serialChart>
+                                </vbox>
+                            </hbox>
+                            <hbox width="100%" height="500px" spacing="true">
+                                <vbox width="50%" height="100%" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                                    <groupBox caption="Image with a declaratively defined source"
+                                              height="200px"
+                                              width="370px">
+                                        <image id="declarativeImage"
+                                               align="MIDDLE_CENTER">
+                                            <url url="https://www.cuba-platform.com/sites/all/themes/cuba_adaptive/img/logo-cuba.png"/>
+                                        </image>
+                                    </groupBox>
+                                </vbox>
+                            </hbox>
+                            </scrollBox>
+                        </vbox>
+                    </vbox>
+                </initialLayout>
+            </workArea>
+        </split>
+    </layout>
+</window>

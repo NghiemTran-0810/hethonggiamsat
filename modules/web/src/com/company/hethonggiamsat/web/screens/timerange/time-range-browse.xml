@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://timeRangeBrowse.caption"
+        focusComponent="timeRangesTable"
+        messagesPack="com.company.hethonggiamsat.web.screens.timerange">
+    <data readOnly="true">
+        <collection id="timeRangesDc"
+                    class="com.company.hethonggiamsat.entity.TimeRange">
+            <view extends="_local"/>
+            <loader id="timeRangesDl">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_TimeRange e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="timeRangesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="timeRangesTable"
+                dataLoader="timeRangesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="timeRangesTable"
+                    width="100%"
+                    dataContainer="timeRangesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="timeRange"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="timeRangesTable.create"/>
+                <button id="editBtn" action="timeRangesTable.edit"/>
+                <button id="removeBtn" action="timeRangesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CubaPluginProjectSettings">
+    <option name="groupUpdateScriptsBy" value="MONTH" />
+    <option name="stateVersion" value="1" />
+    <option name="savedDbProperties">
+      <list>
+        <SavedDbProperties>
+          <option name="databaseName" value="hethonggiamsat" />
+          <option name="dbType" value="mssql" />
+          <option name="dbmsVersion" value="2012" />
+          <option name="host" value="localhost" />
+          <option name="pass" value="saPass1" />
+          <option name="systemPassword" value="" />
+          <option name="systemUser" value="" />
+          <option name="url" value="jdbc:sqlserver://localhost;databaseName=hethonggiamsat-178683" />
+          <option name="user" value="sa" />
+        </SavedDbProperties>
+      </list>
+    </option>
+  </component>
+</project>

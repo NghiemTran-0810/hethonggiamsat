@@ -1,0 +1,29 @@
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.hethonggiamsat.entity.ConfigStorages" name="configStorages-view" extends="_local">
+        <property name="language" view="_local"/>
+        <property name="source" view="_local"/>
+        <property name="timeRange" view="_local"/>
+        <property name="place" view="_local"/>
+    </view>
+    <view class="com.company.hethonggiamsat.entity.Language" name="language-view" extends="_local">
+        <property name="id"/>
+        <property name="nameLanguage"/>
+    </view>
+    <view class="com.company.hethonggiamsat.entity.Source" name="source-view">
+        <property name="id"/>
+        <property name="nameSource"/>
+    </view>
+    <view class="com.company.hethonggiamsat.entity.TimeRange" name="timeRange-view">
+        <property name="id"/>
+        <property name="timeRange"/>
+    </view>
+    <view class="com.company.hethonggiamsat.entity.Place" name="place-view">
+        <property name="id"/>
+        <property name="namePlace"/>
+    </view>
+    <view
+          class="com.company.hethonggiamsat.entity.Language"
+          name="language-view">
+        <property name="nameLanguage"/>
+    </view>
+</views>

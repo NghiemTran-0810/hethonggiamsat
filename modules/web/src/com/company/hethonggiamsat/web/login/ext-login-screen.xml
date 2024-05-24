@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="mainMsg://loginWindow.caption"
+        messagesPack="com.company.hethonggiamsat.web.login">
+    <actions>
+        <action id="submit"
+                caption="mainMsg://loginWindow.okButton"
+                icon="app/images/login-button.png"
+                invoke="login" shortcut="ENTER"/>
+    </actions>
+    <layout stylename="c-login-main-layout" expand="loginWrapper">
+        <vbox id="loginWrapper">
+            <vbox id="loginMainBox"
+                  align="MIDDLE_CENTER"
+                  margin="true"
+                  stylename="c-login-panel"
+                  width="AUTO">
+                <hbox id="loginTitleBox"
+                      align="MIDDLE_CENTER"
+                      spacing="true"
+                      stylename="c-login-title">
+                    <image id="logoImage"
+                           align="MIDDLE_LEFT"
+                           height="AUTO"
+                           scaleMode="SCALE_DOWN"
+                           stylename="c-login-icon"
+                           width="AUTO"/>
+                    <label id="welcomeLabel"
+                           align="MIDDLE_LEFT"
+                           stylename="c-login-caption"
+                           value="ĐĂNG NHẬP"/>
+                </hbox>
+                <capsLockIndicator id="capsLockIndicator"
+                                   align="MIDDLE_CENTER"
+                                   stylename="c-login-capslockindicator"/>
+                <vbox id="loginForm"
+                      spacing="true"
+                      stylename="c-login-form">
+                    <cssLayout id="loginCredentials"
+                               stylename="c-login-credentials">
+                        <label value="Tài khoản" stylename="login-label"/>
+                        <textField id="loginField"
+                                   htmlName="loginField"
+                                   inputPrompt="mainMsg://loginWindow.loginPlaceholder"
+                                   stylename="c-login-username"/>
+                        <label value="Mật khẩu" stylename="login-label" css="margin-top: 42px;"/>
+                        <passwordField id="passwordField"
+                                       autocomplete="true"
+                                       htmlName="passwordField"
+                                       inputPrompt="mainMsg://loginWindow.passwordPlaceholder"
+                                       capsLockIndicator="capsLockIndicator"
+                                       stylename="c-login-password"/>
+                    </cssLayout>
+                        <lookupField id="localesSelect"
+                                     nullOptionVisible="false"
+                                     stylename="c-login-locale"
+                                     textInputAllowed="false"/>
+                    <hbox id="rememberLocalesBox" css="width: 100%; margin-top: 42px;">
+                            <checkBox id="rememberMeCheckBox"
+                                      caption="Lưu thông tin đăng nhập"
+                                      stylename="c-login-remember-me fs-12"/>
+
+                            <linkButton id="forgotPasswordLink"
+                                        caption="Quên mật khẩu?"
+                                        stylename="c-forgot-password fs-12"
+                            />
+                    </hbox>
+
+                    <button id="loginButton"
+                            align="MIDDLE_CENTER"
+                            action="submit"
+                            stylename="c-login-submit-button"
+                            caption="Đăng nhập"
+                    />
+                </vbox>
+            </vbox>
+        </vbox>
+        <label id="poweredByLink"
+               align="MIDDLE_CENTER"
+               htmlEnabled="true"
+               stylename="c-powered-by"
+               value="mainMsg://cuba.poweredBy"/>
+    </layout>
+</window>

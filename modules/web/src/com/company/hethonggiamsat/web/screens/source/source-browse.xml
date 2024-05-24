@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://sourceBrowse.caption"
+        focusComponent="sourcesTable"
+        messagesPack="com.company.hethonggiamsat.web.screens.source">
+    <data readOnly="true">
+        <collection id="sourcesDc"
+                    class="com.company.hethonggiamsat.entity.Source">
+            <view extends="_local"/>
+            <loader id="sourcesDl">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_Source e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sourcesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sourcesTable"
+                dataLoader="sourcesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="sourcesTable"
+                    width="100%"
+                    dataContainer="sourcesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="nameSource"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="sourcesTable.create"/>
+                <button id="editBtn" action="sourcesTable.edit"/>
+                <button id="removeBtn" action="sourcesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

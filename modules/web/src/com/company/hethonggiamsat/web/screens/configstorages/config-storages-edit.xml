@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://configStoragesEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.hethonggiamsat.web.screens.configstorages">
+    <data>
+        <instance id="configStoragesDc"
+                  class="com.company.hethonggiamsat.entity.ConfigStorages">
+            <view extends="configStorages-view"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800" forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="configStoragesDc">
+            <column width="350px">
+                <textField id="topicNameField" property="topicName" caption="Chủ đề"/>
+                <textField id="keywordField" property="keyword" caption="Từ Khoá"/>
+                <textField id="exclusionField" property="exclusion" caption="Loại trừ"/>
+                <textField id="numOfRecordsField" property="numOfRecords" caption="Tổng số"/>
+                <pickerField id="languageField" property="language" caption="Ngôn ngữ">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="sourceField" property="source" caption="Nguồn">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="timeRangeField" property="timeRange" caption="Phạm vi">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="placeField" property="place" caption="Địa điểm">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

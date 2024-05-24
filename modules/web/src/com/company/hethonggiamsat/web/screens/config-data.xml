@@ -1,0 +1,85 @@
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://configData.caption"
+        messagesPack="com.company.hethonggiamsat.web.screens">
+
+    <data readOnly="true">
+        <collection id="configStoragesesDc"
+                    class="com.company.hethonggiamsat.entity.ConfigStorages">
+            <view extends="_local"/>
+            <loader id="configStoragesesDl">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_ConfigStorages e]]>
+                </query>
+            </loader>
+        </collection>
+
+        <collection id="languagesDc"
+                    class="com.company.hethonggiamsat.entity.Language"
+                    view="language-view">
+            <loader id="languagesDl">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_Language e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+
+    <layout spacing="true" margin="true" width="100%" height="100%">
+
+        <tokenList id="languagesList" visible="true"
+                   dataContainer="configStoragesesDc" inline="true"
+                   width="100%" property="language" position="BOTTOM">
+            <lookup optionsContainer="languagesDc" captionProperty="nameLanguage" filterMode="STARTS_WITH"/>
+        </tokenList>
+        <cssLayout responsive="true" stylename="col-3" width="100%">
+            <cssLayout width="33%" height="100%" responsive="true" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                <vbox width="100%" height="100%" spacing="true">
+                    <vbox width="100%" spacing="true">
+                        <hbox spacing="true" width="100%">
+                            <label value="Danh sách chủ đề" align="MIDDLE_LEFT" stylename="h3"/>
+                            <button id="showDialogBtn" caption="msg://tp" css="float:right;"/>
+                        </hbox>
+                    </vbox>
+                    <vbox>
+                    </vbox>
+                    <vbox width="100%" spacing="true" css="padding-top: 15px" expand="configStoragesesTable">
+                        <groupTable id="configStoragesesTable"
+                                    width="100%"
+                                    dataContainer="configStoragesesDc">
+                            <actions>
+                                <action id="create" type="create"/>
+                                <action id="edit" type="edit"/>
+                                <action id="remove" type="remove"/>
+                            </actions>
+                            <columns>
+                                <column id="stt" caption="STT" generator="generateSTT"/>
+                                <column id="topicName" caption="msg://configData.topicname"/>
+                                <column id="numOfRecords" caption="msg://configData.numbers"/>
+                                <column id="thaotac" generator="generatorThaoTac" caption="Thao tác"/>
+                            </columns>
+                        </groupTable>
+                    </vbox>
+                </vbox>
+            </cssLayout>
+            <cssLayout width="33%" height="800px" responsive="true" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                <vbox>
+                    <vbox>
+                        <label value="Nguồn hiển thị"/>
+                    </vbox>
+                    <vbox width="100%" height="100%">
+                        <tokenList id="languagesList"
+                                   dataContainer="configStoragesesDc" clearEnabled="false"
+                                   width="320px" property="language" position="BOTTOM">
+                            <lookup optionsContainer="languagesDc"/>
+                        </tokenList>
+                    </vbox>
+                </vbox>
+            </cssLayout>
+            <cssLayout width="33%" height="100%" responsive="true" css="background: #fff;border: 1px solid #e0e0e0; padding: 10px;">
+                <hbox>
+                    <label value="Nguồn hiển thị"/>
+                </hbox>
+            </cssLayout>
+        </cssLayout>
+    </layout>
+</window>

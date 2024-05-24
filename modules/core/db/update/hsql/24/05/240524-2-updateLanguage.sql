@@ -1,0 +1,1 @@
+alter table HETHONGGIAMSAT_LANGUAGE alter column NAME_LANGUAGE rename to NAME_LANGUAGE__U26949 ^

@@ -1,0 +1,1 @@
+drop table HETHONGGIAMSAT_LANGUAGES__U78748 if exists cascade ;

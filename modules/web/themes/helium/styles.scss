@@ -1,0 +1,145 @@
+@import "helium-defaults";
+@import "com.company.hethonggiamsat/helium-ext-defaults";
+@import "app-components";
+@import "com.company.hethonggiamsat/helium-ext";
+
+.helium {
+  // include auto-generated app components SCSS
+  @include app_components;
+
+  @include com_company_hethonggiamsat-helium-ext;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.helium {
+    //- page Login
+    .c-login-panel{
+        border-radius: 0px;
+    }
+
+    .c-image.object-fit-scale-down,
+    .c-powered-by{
+        display: none;
+    }
+    .c-login-panel{
+        background-color:#f2f2f2;
+        border: 1px solid #000000;
+    }
+    .c-login-username,
+    .c-login-password{
+        border-radius: 6px;
+        border-color: black;
+    }
+    .c-login-username{
+       border-bottom-width: thin;
+    }
+    .login-label{
+        margin: 10px 0;
+        color: black;
+    }
+    .c-login-caption{
+        color: #015478;
+        font-family: 'Arial Bold', 'Arial Regular', 'Arial', sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 24px;
+    }
+    .c-login-submit-button{
+        background-color: #169bd5;
+        margin-top: 40px;
+        border-color: unset;
+        width:167px;
+    }
+    .c-login-submit-button:hover:not(.v-disabled){
+        border-color: unset;
+        background: #0f719b;
+    }
+    .c-login-submit-button .v-icon.FontAwesome{
+        display: none;
+    }
+    .v-slot-c-forgot-password{
+        float: right;
+    }
+    .c-login-submit-button .v-button-caption{
+        margin:0;
+    }
+    .fs-12{
+        font-size: 12px;
+        line-height: normal;
+    }
+    .c-forgot-password{
+        color: #169bd5;
+    }
+    .v-checkbox>input ~ label:after {
+        border-radius: 0;
+        font-size: 8px;
+        line-height: 12px;
+        height: 12px;
+        width: 12px;
+    }
+    .col-3{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+:root .helium .v-checkbox>input:checked ~ label:after {
+    color: #000000;
+}
+:root .helium .v-checkbox>input:checked ~ label:before {
+    background: var(--checkbox-checked-background-color);
+    border-color: #000000;
+}
+:root .helium .v-checkbox>input ~ label:before {
+    border-width: 1px;
+}
+:root .helium .v-checkbox>input ~ label:before,
+:root .helium .v-checkbox>input ~ label:after {
+    border-radius: 0;
+    font-size: 9px;
+    line-height: 12px;
+    height: 12px;
+    width: 12px;
+}
+:root .helium .v-checkbox>input:focus:checked ~ label:after{
+    color: #000;
+}
+:root .helium .v-checkbox>input:focus:checked ~ label:before {
+    background: var(--checkbox-checked-focused-background-color);
+    border-color: #000000;
+}
+:root .helium .v-checkbox>input:focus ~ label:before{
+    border-width: 1px;
+}
+:root .helium .v-checkbox {
+    padding-left: 23px;
+    height: unset;
+}
+
+:root .helium .v-checkbox>input ~ label:before, :root .helium .v-checkbox>input ~ label:after {
+    top: 3px;
+    left: 1px;
+}
+:root .helium .v-checkbox>input:focus:checked ~ label:before{
+    background: white;
+    border-color: #000;
+}
+:root .helium .v-checkbox>input:focus:checked ~ label:before{
+    background: white;
+    border-color: #000;
+}
+:root .helium .v-checkbox>input:focus ~ label:before{
+    background: white;
+    border-color: black;
+}
+.helium .c-app-workarea{
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+}
+.helium .c-inverse-header.c-app-menubar{
+    background-color: #03bfc0;
+    border: 1px solid transparent;
+}

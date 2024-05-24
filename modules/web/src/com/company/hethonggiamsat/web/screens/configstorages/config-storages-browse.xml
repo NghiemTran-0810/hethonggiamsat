@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://configStoragesBrowse.caption"
+        focusComponent="configStoragesesTable"
+        messagesPack="com.company.hethonggiamsat.web.screens.configstorages">
+    <data readOnly="true">
+        <collection id="configStoragesesDc"
+                    class="com.company.hethonggiamsat.entity.ConfigStorages">
+            <view extends="configStorages-view"/>
+            <loader id="configStoragesesDl">
+                <query>
+                    <![CDATA[select e from hethonggiamsat_ConfigStorages e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="configStoragesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="configStoragesesTable"
+                dataLoader="configStoragesesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="configStoragesesTable"
+                    width="100%"
+                    dataContainer="configStoragesesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="topicName" caption="Chủ Đề"/>
+                <column id="keyword" caption="Từ Khoá"/>
+                <column id="exclusion" caption="Loại Trừ"/>
+                <column id="numOfRecords" caption="Tổng số"/>
+                <column id="language.nameLanguage" caption="Ngôn Ngữ"/>
+                <column id="source.nameSource" caption="Nguồn"/>
+                <column id="timeRange.timeRange" caption="Phạm Vi"/>
+                <column id="place.namePlace" caption="Địa Điểm"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="configStoragesesTable.create"/>
+                <button id="editBtn" action="configStoragesesTable.edit"/>
+                <button id="removeBtn" action="configStoragesesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

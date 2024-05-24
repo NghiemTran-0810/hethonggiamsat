@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-hethonggiamsat" insertBefore="administration" caption="Trang chủ">
+        <item screen="hethonggiamsat_DataValue.browse" caption="mainMsg://menu_config.hethonggiamsat_DataValue.browse"/>
+        <item screen="hethonggiamsat_ConfigData" caption="mainMsg://menu_config.hethonggiamsat_ConfigData"/>
+        <item screen="hethonggiamsat_ConfigStorages.browse"
+              caption="mainMsg://menu_config.hethonggiamsat_ConfigStorages.browse"/>
+        <item screen="hethonggiamsat_Language.browse" caption="mainMsg://menu_config.hethonggiamsat_Language.browse"/>
+        <item screen="hethonggiamsat_Source.browse" caption="mainMsg://menu_config.hethonggiamsat_Source.browse"/>
+        <item screen="hethonggiamsat_Place.browse" caption="mainMsg://menu_config.hethonggiamsat_Place.browse"/>
+        <item screen="hethonggiamsat_TimeRange.browse" caption="mainMsg://menu_config.hethonggiamsat_TimeRange.browse"/>
+    </menu>
+
+    <menu id="application-demo" insertBefore="administration" caption="Chủ đề">
+    </menu>
+</menu-config>

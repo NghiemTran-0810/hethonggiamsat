@@ -1,0 +1,2 @@
+alter table HETHONGGIAMSAT_CONFIG_STORAGES drop column PLACE_ID__U89011 cascade ;
+alter table HETHONGGIAMSAT_CONFIG_STORAGES drop column TIME_RANGE_ID__U78614 cascade ;
